@@ -16,3 +16,24 @@
     background-color: var(--input-bg);
     color: var(--text);
 }
+
+.word-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.submit-word-button {
+    display: block;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: #edb32f;
+    color: white;
+    cursor: pointer;
+}
+
+.submit-word-button:hover {
+    background-color: #d4a017;
+}
