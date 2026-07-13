@@ -3,7 +3,8 @@
     --text-h: #fcfbfc;
     --bg: #fd5576;
     --border: #2e303a;
-    --border-radius: 8px;
+    --input-bg: #1f2028;
+    --border-radius: 4px;
     --shadow:
         rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
     --sans: system-ui, "Segoe UI", Roboto, sans-serif;
