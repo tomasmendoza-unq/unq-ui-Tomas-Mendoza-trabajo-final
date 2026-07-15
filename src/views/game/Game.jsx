@@ -57,7 +57,7 @@ export const Game = () => {
         setIsValidating(false);
 
         if (!isValid) {
-            setError("Palabra no válida");
+            setError("La palabra no existe");
             return;
         }
 
