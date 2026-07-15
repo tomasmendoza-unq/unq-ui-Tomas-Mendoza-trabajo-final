@@ -4,7 +4,7 @@ import "./style/Game.css";
 import { TableWords } from "./components/tableWords/TableWords";
 import { GameOverModal } from "./components/gameOver/GameOverModal";
 
-const INITIAL_TIME = 15;
+const INITIAL_TIME = 1500;
 
 export const Game = () => {
     const [time, setTime] = useState(INITIAL_TIME);
@@ -52,8 +52,6 @@ export const Game = () => {
                 setTime={setTime}
             />
 
-            {words.length > 0 && <TableWords words={words} />}
-
             {isGameOver && (
                 <GameOverModal
                     isOpen={isGameOver}
@@ -93,6 +91,7 @@ export const Game = () => {
                     Enviar
                 </button>
             </form>
+            {words.length > 0 && <TableWords words={words} />}
         </section>
     );
 };
