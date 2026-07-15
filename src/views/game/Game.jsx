@@ -3,6 +3,7 @@ import { Timer } from "./components/timer/Timer";
 import "./style/Game.css";
 import { TableWords } from "./components/tableWords/TableWords";
 import { GameOverModal } from "./components/gameOver/GameOverModal";
+import { isWordValid } from "../../service/game.service";
 
 const INITIAL_TIME = 1500;
 
@@ -11,6 +12,7 @@ export const Game = () => {
     const [words, setWords] = useState([]);
     const [currentWord, setCurrentWord] = useState("");
     const [error, setError] = useState("");
+    const [isValidating, setIsValidating] = useState(false);
 
     const isGameOver = time <= 0;
 
@@ -19,17 +21,24 @@ export const Game = () => {
         if (error) setError("");
     };
 
-    const onSubmitWord = (e) => {
+    const onSubmitWord = async (e) => {
         e.preventDefault();
 
         const word = currentWord.trim();
-        if (!word) return;
 
         const normalized = word.toLowerCase();
-        const alreadyExists = words.some((w) => w.toLowerCase() === normalized);
 
+        const alreadyExists = words.some((w) => w.toLowerCase() === normalized);
         if (alreadyExists) {
             setError("Palabra ya ingresada");
+            return;
+        }
+
+        setIsValidating(true);
+        const isValid = await isWordValid(normalized);
+        setIsValidating(false);
+        if (!isValid) {
+            setError("Palabra no válida");
             return;
         }
 
@@ -86,9 +95,9 @@ export const Game = () => {
                 <button
                     type="submit"
                     className="submit-word-button"
-                    disabled={isGameOver || !currentWord.trim()}
+                    disabled={isGameOver || !currentWord.trim() || isValidating}
                 >
-                    Enviar
+                    {isValidating ? "Validando..." : "Enviar"}
                 </button>
             </form>
             {words.length > 0 && <TableWords words={words} />}
