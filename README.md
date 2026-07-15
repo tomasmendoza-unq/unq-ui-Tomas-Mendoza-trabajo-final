@@ -1,16 +1,31 @@
-# React + Vite
+# Palabras Encadenadas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Trabajo Final Integrador de la materia UIs (UNQ) — un juego de palabras encadenadas hecho con React.
 
-Currently, two official plugins are available:
+## Cómo se juega
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Ingresá una palabra para empezar la cadena.
+- Cada palabra siguiente tiene que empezar con la última letra de la anterior, existir en el diccionario español y no haber sido usada antes en la partida.
+- Tenés 15 segundos por turno; el contador se reinicia con cada palabra válida.
+- Cuando se acaba el tiempo termina la partida y se muestra la cantidad de palabras encadenadas y el puntaje final.
 
-## React Compiler
+## Requisitos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Node.js](https://nodejs.org/) 20 o superior
+- npm
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git clone https://github.com/tomasmendoza-unq/unq-ui-Tomas-Mendoza-trabajo-final.git
+cd unq-ui-Tomas-Mendoza-trabajo-final
+npm install
+```
+
+## Ejecución local
+
+```bash
+npm run dev
+```
+
+Abrí la URL que muestra la consola (por defecto http://localhost:5173).
