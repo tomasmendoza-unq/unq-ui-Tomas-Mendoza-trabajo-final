@@ -11,6 +11,7 @@ export const Game = () => {
     const [time, setTime] = useState(INITIAL_TIME);
     const [words, setWords] = useState([]);
     const [currentWord, setCurrentWord] = useState("");
+    const [points, setPoints] = useState(0);
     const [error, setError] = useState("");
     const [isValidating, setIsValidating] = useState(false);
 
@@ -43,6 +44,7 @@ export const Game = () => {
         }
 
         setWords((prev) => [...prev, word]);
+        setPoints((prev) => prev + word.length);
         setCurrentWord("");
         setError("");
     };
@@ -56,11 +58,6 @@ export const Game = () => {
 
     return (
         <section className="game">
-            <Timer
-                time={time}
-                setTime={setTime}
-            />
-
             {isGameOver && (
                 <GameOverModal
                     isOpen={isGameOver}
@@ -68,6 +65,11 @@ export const Game = () => {
                     onRestart={onRestart}
                 />
             )}
+            <Timer
+                time={time}
+                setTime={setTime}
+            />
+            <p className="points">Puntos: {points}</p>
 
             <form
                 className="word-form"
@@ -100,6 +102,7 @@ export const Game = () => {
                     {isValidating ? "Validando..." : "Enviar"}
                 </button>
             </form>
+
             {words.length > 0 && <TableWords words={words} />}
         </section>
     );
