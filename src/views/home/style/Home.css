@@ -22,3 +22,45 @@
 .home-button:hover {
     background-color: #53a569;
 }
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.home-button {
+    display: block;
+    max-width: 100%;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+.home-button-primary {
+    background-color: #6bbf87;
+    color: white;
+}
+
+.home-button-primary:hover {
+    background-color: #53a569;
+}
+
+.home-button-secondary {
+    background-color: #4a5568;
+    color: white;
+}
+
+.home-button-secondary:hover {
+    background-color: #2d3748;
+}
