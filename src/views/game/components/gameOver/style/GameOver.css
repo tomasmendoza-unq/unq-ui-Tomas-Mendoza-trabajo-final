@@ -1,0 +1,53 @@
+.gameover-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.gameover-container p {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #333333;
+}
+
+.gameover-container .btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 250px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 12px;
+}
+
+.gameover-container .btn-primary {
+    background-color: #2ecc71;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
+}
+
+.gameover-container .btn-primary:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(46, 204, 113, 0.3);
+}
+
+.gameover-container .btn-secondary {
+    background-color: #95a5a6;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(149, 165, 166, 0.2);
+}
+
+.gameover-container .btn-secondary:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(149, 165, 166, 0.3);
+}

@@ -1,0 +1,23 @@
+.modal-title-custom {
+    background-color: var(--bg);
+    color: #ffffff;
+    font-weight: bold;
+    padding-right: 48px !important;
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute !important;
+    right: 8px !important;
+    top: 8px !important;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.modal-content-custom {
+    padding-top: 20px !important;
+}

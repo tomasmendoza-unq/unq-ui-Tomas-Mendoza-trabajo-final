@@ -1,0 +1,39 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.word-input {
+    display: block;
+    max-width: 100%;
+    width: 200px;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border);
+    background-color: var(--input-bg);
+    color: var(--text);
+}
+
+.word-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.submit-word-button {
+    display: block;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: #edb32f;
+    color: white;
+    cursor: pointer;
+}
+
+.submit-word-button:hover {
+    background-color: #d4a017;
+}
