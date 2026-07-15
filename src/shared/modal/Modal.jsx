@@ -3,6 +3,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import "./style/Modal.css";
 
 export const Modal = ({ isOpen, onClose, children, title }) => (
     <Dialog
@@ -13,17 +14,22 @@ export const Modal = ({ isOpen, onClose, children, title }) => (
         maxWidth="sm"
     >
         {title && (
-            <DialogTitle id="modal-title">
+            <DialogTitle
+                id="modal-title"
+                className="modal-title-custom"
+            >
                 {title}
                 <IconButton
                     aria-label="Cerrar modal"
                     onClick={onClose}
-                    sx={{ position: "absolute", right: 8, top: 8 }}
+                    className="modal-close-btn"
                 >
                     <CloseIcon />
                 </IconButton>
             </DialogTitle>
         )}
-        <DialogContent>{children}</DialogContent>
+        <DialogContent className="modal-content-custom">
+            {children}
+        </DialogContent>
     </Dialog>
 );

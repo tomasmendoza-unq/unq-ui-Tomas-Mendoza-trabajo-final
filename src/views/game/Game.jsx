@@ -30,16 +30,19 @@ export const Game = () => {
 
         const normalized = word.toLowerCase();
 
-        const alreadyExists = words.some((w) => w.toLowerCase() === normalized);
-        if (alreadyExists) {
-            setError("Palabra ya ingresada");
-            return;
-        }
-
         if (words.length > 0) {
             const previousWord = words[words.length - 1].toLowerCase();
             const firstLetterNew = normalized[0];
             const lastLetterPrevious = previousWord.slice(-1);
+
+            const alreadyExists = words.some(
+                (w) => w.toLowerCase() === normalized,
+            );
+
+            if (alreadyExists) {
+                setError("Palabra ya ingresada");
+                return;
+            }
 
             if (firstLetterNew !== lastLetterPrevious) {
                 setError(
@@ -52,6 +55,7 @@ export const Game = () => {
         setIsValidating(true);
         const isValid = await isWordValid(normalized);
         setIsValidating(false);
+
         if (!isValid) {
             setError("Palabra no válida");
             return;
@@ -67,6 +71,7 @@ export const Game = () => {
     const onRestart = () => {
         setTime(INITIAL_TIME);
         setWords([]);
+        setPoints(0);
         setCurrentWord("");
         setError("");
     };
@@ -77,6 +82,7 @@ export const Game = () => {
                 <GameOverModal
                     isOpen={isGameOver}
                     wordsCount={words.length}
+                    points={points}
                     onRestart={onRestart}
                 />
             )}
