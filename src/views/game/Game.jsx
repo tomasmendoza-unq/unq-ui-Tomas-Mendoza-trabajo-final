@@ -5,7 +5,7 @@ import { TableWords } from "./components/tableWords/TableWords";
 import { GameOverModal } from "./components/gameOver/GameOverModal";
 import { isWordValid } from "../../service/game.service";
 
-const INITIAL_TIME = 1500;
+const INITIAL_TIME = 15;
 
 export const Game = () => {
     const [time, setTime] = useState(INITIAL_TIME);
@@ -26,6 +26,7 @@ export const Game = () => {
         e.preventDefault();
 
         const word = currentWord.trim();
+        if (!word) return;
 
         const normalized = word.toLowerCase();
 
@@ -33,6 +34,19 @@ export const Game = () => {
         if (alreadyExists) {
             setError("Palabra ya ingresada");
             return;
+        }
+
+        if (words.length > 0) {
+            const previousWord = words[words.length - 1].toLowerCase();
+            const firstLetterNew = normalized[0];
+            const lastLetterPrevious = previousWord.slice(-1);
+
+            if (firstLetterNew !== lastLetterPrevious) {
+                setError(
+                    "La primera letra debe coincidir con la última de la palabra anterior",
+                );
+                return;
+            }
         }
 
         setIsValidating(true);
@@ -46,6 +60,7 @@ export const Game = () => {
         setWords((prev) => [...prev, word]);
         setPoints((prev) => prev + word.length);
         setCurrentWord("");
+        setTime(INITIAL_TIME);
         setError("");
     };
 
